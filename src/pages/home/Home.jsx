@@ -1,11 +1,13 @@
-import { Avatar, Button, Container, Grid, TextField } from '@mui/material'
 import React from 'react'
-import { Form } from 'react-router-dom'
+
+import Form from '../../components/form/Form'
+import "./Home.css"
 
 const Home = () => {
   return (
-    <div>
-      <h1>Hello World</h1>
+    <div className='containerHome'>
+      <h1>Find User Chess.com</h1>
+      <Form />
     </div>
   )
 }
