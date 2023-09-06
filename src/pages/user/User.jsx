@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { findUserByName } from '../../hooks/useFetch';
 
+import "./User.css"
+
 const User = () => {
 
   const { userName } = useParams();
@@ -52,7 +54,7 @@ const User = () => {
           ) : (
             <>
               <h3>User: {userName}</h3>
-              {avatar && <img src={avatar} />}
+              {avatar && <img className='avatar' src={avatar} alt='Avatar no chess.com' />}
               {followers && <p>Followers: {followers}</p>}
               {isStreamer && <p>Is Streamer: {isStreamer}</p>}
               {league && <p>League: {league}</p>}
@@ -60,7 +62,7 @@ const User = () => {
               {urlUser && (
                 <p>
                   <a href={urlUser} target="_blank" rel="noopener noreferrer">
-                    Link user
+                    <img width="48" height="48" src="https://img.icons8.com/color/32/chess-com.png" alt="chess-com"/>
                   </a>
                 </p>
               )}
