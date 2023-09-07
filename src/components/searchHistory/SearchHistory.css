@@ -10,7 +10,17 @@
 }
 
 .userName {
+    height: 20px;
+    padding: 5px;
     cursor: pointer;
+    background-color: #0e375e;
+    border-radius: 5px;
+    transition: all 0.5s;
+}
+
+.userName:hover {
+    color: white;
+    background-color: #13202c;
 }
 
 .buttonClearHistory {
