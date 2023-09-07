@@ -23,6 +23,11 @@ const SearchHistory = () => {
     return [];
   }
 
+  const clearHistoryUserNames = () => {
+    setHistoryUserNames([]);
+    localStorage.setItem('UserNames', JSON.stringify([]));
+  }
+
   const handleSubmit = (userName) => {
     navigate(`/users/${userName}`);
   }
@@ -39,6 +44,7 @@ const SearchHistory = () => {
           <h3>Histórico vazio</h3>
         )}
       </div>
+      <button className='buttonClearHistory' onClick={clearHistoryUserNames}>Limpar</button>
     </>
   )
 }

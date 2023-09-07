@@ -13,6 +13,20 @@
     cursor: pointer;
 }
 
+.buttonClearHistory {
+    margin-top: 20px;
+    width: 70px;
+    height: 30px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+.buttonClearHistory:hover {
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
 @media (min-width: 768px) {
     .containerSearchHistory {
         width: 30%;
