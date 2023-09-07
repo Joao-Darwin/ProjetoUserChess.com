@@ -10,11 +10,22 @@ const Form = () => {
 
   const [userName, setUserName] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = () => {
     if (userName !== '') {
+      addUserNameLocalStorage(userName);
       navigate(`/user/${userName}`);
     } else {
       alert("Você precisa informar o username");
+    }
+  }
+
+  const addUserNameLocalStorage = (userName) => {
+    if (localStorage.getItem('UserNames')) {
+      let userNames = JSON.parse(localStorage.getItem('UserNames'));
+      userNames.push(userName);
+      localStorage.setItem("UserNames", JSON.stringify(userNames));
+    } else {
+      localStorage.setItem('UserNames', JSON.stringify([userName]));
     }
   }
 
