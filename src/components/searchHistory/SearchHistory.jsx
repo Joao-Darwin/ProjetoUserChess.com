@@ -24,7 +24,7 @@ const SearchHistory = () => {
   }
 
   const handleSubmit = (userName) => {
-    navigate(`/user/${userName}`);
+    navigate(`/users/${userName}`);
   }
 
   return (

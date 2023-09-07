@@ -13,7 +13,7 @@ const Form = () => {
   const handleSubmit = () => {
     if (userName !== '') {
       addUserNameLocalStorage(userName);
-      navigate(`/user/${userName}`);
+      navigate(`/users/${userName}`);
     } else {
       alert("Você precisa informar o username");
     }
