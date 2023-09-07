@@ -1,0 +1,20 @@
+.containerSearchHistory {
+    margin: auto;
+    align-items: center;
+    width: 77%;
+    min-height: 200px;
+    height: auto;
+    border-radius: 10px;
+    background-color: #0e375e;
+    padding: 20px 20px;
+}
+
+.userName {
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .containerSearchHistory {
+        width: 30%;
+    }
+}
