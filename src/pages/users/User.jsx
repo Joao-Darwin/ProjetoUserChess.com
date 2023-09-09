@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { findUserByName } from '../../hooks/useFetch';
 
 import "./User.css"
+// import UserStats from '../../components/userStats/UserStats';
 
 const User = () => {
 
@@ -14,6 +15,7 @@ const User = () => {
   const [avatar, setAvatar] = useState();
   const [followers, setFollowers] = useState();
   const [isStreamer, setIsStreamer] = useState();
+  const [urlTwitch, setUrlTwitch] = useState();
   const [league, setLeague] = useState();
   const [plan, setPlan] = useState();
   const [urlUser, setUrlUser] = useState();
@@ -33,14 +35,18 @@ const User = () => {
   }
 
   const setParamsUser = (data, codeResponse) => {
-    setCodeResponse(codeResponse);
-
     setAvatar(data.avatar);
     setFollowers(data.followers);
     setIsStreamer(data.is_streamer);
     setLeague(data.league);
     setPlan(data.status);
     setUrlUser(data.url);
+
+    if (isStreamer) {
+      setUrlTwitch(data.twitch_url);
+    }
+
+    setCodeResponse(codeResponse);
   }
 
   return (
@@ -53,18 +59,21 @@ const User = () => {
             <h3>User {userName} não encontrado</h3>
           ) : (
             <>
-              <h3>User: {userName}</h3>
               {avatar && <img className='avatar' src={avatar} alt='Avatar no chess.com' />}
-              {followers && <p>Followers: {followers}</p>}
-              {isStreamer && <p>Is Streamer: {isStreamer}</p>}
-              {league && <p>League: {league}</p>}
-              {plan && <p>Plan: {plan}</p>}
+              <div>
+                <h3>{userName}</h3>
+                {league && <p>{league}</p>}<br />
+              </div>
+              <div className='divInfoUser'>
+                {followers && <p><strong>{followers}</strong><br />Followers</p>}
+                {isStreamer && <a href={urlTwitch} target='_blank'><img width="48" height="48" src="https://img.icons8.com/color/48/twitch--v1.png" alt="twitch--v1" /></a>}
+                {plan && <p><strong>{plan.toUpperCase()}</strong><br />Plan</p>}
+              </div>
+              {/* <UserStats userName={userName}/> */}
               {urlUser && (
-                <p>
-                  <a href={urlUser} target="_blank" rel="noopener noreferrer">
-                    <img width="48" height="48" src="https://img.icons8.com/color/32/chess-com.png" alt="chess-com"/>
-                  </a>
-                </p>
+                <a title='See on Site' href={urlUser} target="_blank" rel="noopener noreferrer" className='linkSeeOnSite'>
+                  <img width="48" height="48" src="https://img.icons8.com/color/48/info--v1.png" alt="info--v1" />
+                </a>
               )}
             </>
           )}
