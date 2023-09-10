@@ -20,7 +20,7 @@ const UserStats = ({ userName }) => {
 
     const findStatsByUserAsync = async () => {
         const { data, codeResponse } = await findStatsByUser(userName);
-        setStatsParam(data, codeResponse);        
+        setStatsParam(data, codeResponse);
     }
 
     const setStatsParam = (data, codeResponse) => {
@@ -38,8 +38,8 @@ const UserStats = ({ userName }) => {
         <div className='divUserStats'>
             <h2>Stats</h2>
             <h3>Rating Fide: {ratingFide}</h3>
-            <h3>Chess Daily</h3>
-            <div className='divStatsChessType'>
+            {chessDaily && <h3>Chess Daily</h3>}
+            {chessDaily && <div className='divStatsChessType'>
                 <div>
                     <strong>{chessDaily.last.rating}</strong><br />
                     <p>Atual</p>
@@ -60,9 +60,9 @@ const UserStats = ({ userName }) => {
                     <strong>{chessDaily.record.draw}</strong><br />
                     <p>Empates</p>
                 </div>
-            </div>
-            <h3>Chess Rapid</h3>
-            <div className='divStatsChessType'>
+            </div>}
+            { chessRapid && <h3>Chess Rapid</h3>}
+            {chessRapid && <div className='divStatsChessType'>
                 <div>
                     <strong>{chessRapid.last.rating}</strong><br />
                     <p>Atual</p>
@@ -83,9 +83,9 @@ const UserStats = ({ userName }) => {
                     <strong>{chessRapid.record.draw}</strong><br />
                     <p>Empates</p>
                 </div>
-            </div>
-            <h3>Chess Blitz</h3>
-            <div className='divStatsChessType'>
+            </div>}
+           {chessBlitz && <h3>Chess Blitz</h3>}
+            {chessBlitz && <div className='divStatsChessType'>
                 <div>
                     <strong>{chessBlitz.last.rating}</strong><br />
                     <p>Atual</p>
@@ -106,9 +106,9 @@ const UserStats = ({ userName }) => {
                     <strong>{chessBlitz.record.draw}</strong><br />
                     <p>Empates</p>
                 </div>
-            </div>
-            <h3>Chess Bullet</h3>
-            <div className='divStatsChessType'>
+            </div>}
+            {chessBullet && <h3>Chess Bullet</h3>}
+            {chessBullet && <div className='divStatsChessType'>
                 <div>
                     <strong>{chessBullet.last.rating}</strong><br />
                     <p>Atual</p>
@@ -129,9 +129,9 @@ const UserStats = ({ userName }) => {
                     <strong>{chessBullet.record.draw}</strong><br />
                     <p>Empates</p>
                 </div>
-            </div>
-            <h3>Tactics</h3>
-            <div className='divStatsChessType'>
+            </div>}
+            {chessTactics && <h3>Tactics</h3>}
+            {chessTactics && <div className='divStatsChessType'>
                 <div>
                     <strong>{chessTactics.highest.rating}</strong><br />
                     <p>Maior</p>
@@ -140,7 +140,7 @@ const UserStats = ({ userName }) => {
                     <strong>{chessTactics.lowest.rating}</strong><br />
                     <p>Menor</p>
                 </div>
-            </div>
+            </div>}
         </div>
     )
 }
